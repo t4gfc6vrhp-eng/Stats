@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='282.00pt' height='247.50pt' viewBox='0 0 282.00 247.50'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwyODIuMDB8MC4wMHwyNDcuNTA='>
+    <rect x='0.00' y='0.00' width='282.00' height='247.50' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwyODIuMDB8MC4wMHwyNDcuNTA=)'>
+</g>
+<defs>
+  <clipPath id='cpNDQuNzF8MjY4LjA1fDExLjk2fDE4MS40OA=='>
+    <rect x='44.71' y='11.96' width='223.34' height='169.52' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDQuNzF8MjY4LjA1fDExLjk2fDE4MS40OA==)'>
+<polyline points='44.71,173.77 268.05,173.77 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<polyline points='44.71,120.63 268.05,120.63 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<polyline points='44.71,67.49 268.05,67.49 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<polyline points='44.71,14.35 268.05,14.35 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<rect x='54.86' y='141.89' width='20.30' height='31.88' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='75.17' y='147.20' width='20.30' height='26.57' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='95.47' y='72.80' width='20.30' height='100.97' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='115.77' y='30.29' width='20.30' height='143.48' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='136.08' y='56.86' width='20.30' height='116.91' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='156.38' y='19.66' width='20.30' height='154.11' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='176.69' y='24.97' width='20.30' height='148.80' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='196.99' y='131.26' width='20.30' height='42.51' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='217.29' y='152.51' width='20.30' height='21.26' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='237.60' y='163.14' width='20.30' height='10.63' style='stroke-width: 1.28; stroke: #FFFFFF; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+</g>
+<g clip-path='url(#cpMC4wMHwyODIuMDB8MC4wMHwyNDcuNTA=)'>
+<text x='33.95' y='182.50' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='15.14px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='33.95' y='129.36' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='24.90px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='33.95' y='76.22' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='29.78px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='33.95' y='23.08' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='29.97px' lengthAdjust='spacingAndGlyphs'>30</text>
+<text x='54.86' y='209.70' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='30.02px' lengthAdjust='spacingAndGlyphs'>60</text>
+<text x='136.08' y='209.70' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='29.99px' lengthAdjust='spacingAndGlyphs'>80</text>
+<text x='217.29' y='209.70' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='40.05px' lengthAdjust='spacingAndGlyphs'>100</text>
+<text x='156.38' y='238.33' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='255.35px' lengthAdjust='spacingAndGlyphs'>battements par minute</text>
+</g>
+</svg>

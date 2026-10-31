@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='282.00pt' height='247.50pt' viewBox='0 0 282.00 247.50'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: none;'/>
+<defs>
+  <clipPath id='cpMC4wMHwyODIuMDB8MC4wMHwyNDcuNTA='>
+    <rect x='0.00' y='0.00' width='282.00' height='247.50' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHwyODIuMDB8MC4wMHwyNDcuNTA=)'>
+</g>
+<defs>
+  <clipPath id='cpNTQuNzl8MjY4LjA1fDExLjk2fDIxMC4xMA=='>
+    <rect x='54.79' y='11.96' width='213.26' height='198.15' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTQuNzl8MjY4LjA1fDExLjk2fDIxMC4xMA==)'>
+<polyline points='54.79,210.10 268.05,210.10 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<polyline points='54.79,170.30 268.05,170.30 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<polyline points='54.79,130.49 268.05,130.49 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<polyline points='54.79,90.68 268.05,90.68 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<polyline points='54.79,50.87 268.05,50.87 ' style='stroke-width: 0.85; stroke: #E5E7EB; stroke-linecap: butt;' />
+<rect x='83.87' y='47.69' width='58.16' height='162.42' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<rect x='180.81' y='133.67' width='58.16' height='76.43' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #2A78D6;' />
+<text x='112.95' y='41.57' text-anchor='middle' style='font-size: 24.00px;fill: #0F172A; font-family: "Inter";' textLength='39.54px' lengthAdjust='spacingAndGlyphs'>102</text>
+<text x='209.89' y='127.56' text-anchor='middle' style='font-size: 24.00px;fill: #0F172A; font-family: "Inter";' textLength='30.35px' lengthAdjust='spacingAndGlyphs'>48</text>
+</g>
+<g clip-path='url(#cpMC4wMHwyODIuMDB8MC4wMHwyNDcuNTA=)'>
+<text x='44.03' y='218.84' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='15.14px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='44.03' y='179.03' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='29.22px' lengthAdjust='spacingAndGlyphs'>25</text>
+<text x='44.03' y='139.22' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='29.73px' lengthAdjust='spacingAndGlyphs'>50</text>
+<text x='44.03' y='99.41' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='28.17px' lengthAdjust='spacingAndGlyphs'>75</text>
+<text x='44.03' y='59.61' text-anchor='end' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='40.05px' lengthAdjust='spacingAndGlyphs'>100</text>
+<text x='112.95' y='238.33' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='55.72px' lengthAdjust='spacingAndGlyphs'>Sans</text>
+<text x='209.89' y='238.33' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='57.74px' lengthAdjust='spacingAndGlyphs'>Avec</text>
+</g>
+</svg>

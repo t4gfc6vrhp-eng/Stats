@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Dormir, jouer… gagner ? — Trinôme 11</title>
+<style>
+@page { size: 1280px 720px; margin: 0; }
+:root {
+  --ink: #0f172a; --ink2: #334155; --muted: #64748b; --line: #e2e8f0;
+  --accent: #2a78d6; --accent-ink: #1c5cab; --accent-soft: #edf4fd;
+  --orange: #eb6834; --panel: #f6f8fb; --navy: #0b1424;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fff; }
+body { font-family: 'Inter', sans-serif; color: var(--ink);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+sup { font-size: 0.62em; vertical-align: 0.62em; line-height: 0; }
+sub { font-size: 0.7em; vertical-align: -0.2em; line-height: 0; }
+.dia { color: var(--orange); }
+b, strong { font-weight: 700; }
+
+/* ---------- squelette commun ---------- */
+.slide { width: 1280px; height: 720px; position: relative; overflow: hidden;
+  page-break-after: always; break-after: page; padding: 30px 40px 0;
+  background: #fff; }
+.head { display: flex; align-items: center; gap: 18px; height: 62px; }
+.head h1 { font-size: 42px; font-weight: 750; letter-spacing: -0.022em;
+  line-height: 1.1; flex: 1; }
+.num { width: 54px; height: 54px; flex: none; border-radius: 14px;
+  background: var(--accent); color: #fff; font-size: 32px; font-weight: 750;
+  display: grid; place-items: center; }
+.chip { flex: none; font-size: 32px; font-weight: 650; color: var(--accent-ink);
+  background: var(--accent-soft); padding: 5px 20px 7px; border-radius: 999px; }
+.pageno { position: absolute; right: 34px; bottom: 26px; font-size: 22px;
+  font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.banner { position: absolute; left: 40px; right: 104px; bottom: 22px;
+  background: var(--accent-soft); border-left: 8px solid var(--accent);
+  border-radius: 10px; padding: 12px 22px 13px; font-size: 32px;
+  line-height: 1.24; color: var(--ink); }
+.banner .lead { font-weight: 750; color: var(--accent-ink); }
+.ic { width: 30px; height: 30px; flex: none; }
+
+/* ---------- page de titre ---------- */
+.title { background: radial-gradient(1100px 600px at 85% 15%, #17305a 0%, var(--navy) 60%);
+  color: #fff; padding: 0; }
+.title .grid { position: absolute; inset: 0; opacity: .18;
+  background-image: linear-gradient(#3b5b8f 1px, transparent 1px),
+                    linear-gradient(90deg, #3b5b8f 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(760px 460px at 78% 40%, #000 0%, transparent 75%); }
+.title .kick { position: absolute; left: 72px; top: 62px; font-size: 28px; font-weight: 650;
+  letter-spacing: .14em; text-transform: uppercase; color: #8fb6ea; }
+.title .inst { position: absolute; right: 72px; top: 58px; text-align: right; font-size: 26px;
+  line-height: 1.4; color: #9fb2cf; }
+.title h1 { position: absolute; left: 68px; top: 150px; font-size: 108px; line-height: 1.0;
+  font-weight: 800; letter-spacing: -0.035em; }
+.title h1 .q { color: var(--orange); }
+.title .pulse { position: absolute; left: 545px; right: 72px; top: 262px; height: 110px; }
+.title .sub { position: absolute; left: 72px; right: 72px; top: 400px; font-size: 38px;
+  line-height: 1.25; color: #c4d3ea; font-weight: 450; }
+.title .team { position: absolute; left: 72px; right: 72px; bottom: 56px; font-size: 38px;
+  font-weight: 650; line-height: 1.3; display: flex; flex-direction: column;
+  align-items: flex-start; gap: 14px; }
+.title .tri { flex: none; font-size: 32px; font-weight: 750; background: var(--accent);
+  color: #fff; padding: 4px 18px 6px; border-radius: 999px; }
+.title .rule { position: absolute; left: 72px; right: 72px; bottom: 196px; height: 1px;
+  background: #2a3d5e; }
+
+/* ---------- introduction ---------- */
+.intro { display: flex; gap: 40px; margin-top: 18px; }
+.intro .left { width: 560px; display: flex; flex-direction: column; gap: 16px; }
+.stat { display: flex; align-items: center; gap: 22px; }
+.stat .n { width: 200px; flex: none; font-size: 50px; font-weight: 800; white-space: nowrap;
+  letter-spacing: -0.03em; color: var(--accent); text-align: right;
+  font-variant-numeric: tabular-nums; }
+.stat .l { font-size: 32px; line-height: 1.2; color: var(--ink2); }
+.source { margin-top: 2px; font-size: 32px; line-height: 1.22; color: var(--ink2);
+  border-top: 2px solid var(--line); padding-top: 12px; }
+.source b { color: var(--ink); }
+.diagram { flex: 1; display: flex; flex-direction: column; }
+.diagram .lab { font-size: 32px; font-weight: 700; color: var(--muted); margin-bottom: 10px; }
+.fac { display: flex; align-items: baseline; gap: 14px; font-size: 32px; line-height: 1.2;
+  padding: 6px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.fac .k { width: 236px; flex: none; font-weight: 700; }
+.fac .v { color: var(--ink2); }
+.arrow { display: flex; justify-content: center; padding: 4px 0 2px; color: var(--accent); }
+.perf { background: var(--accent); color: #fff; border-radius: 14px; padding: 10px 22px 12px; }
+.perf .k { font-size: 32px; font-weight: 750; }
+.perf .v { font-size: 32px; line-height: 1.22; color: #e6effb; }
+.problem { position: absolute; left: 40px; right: 104px; bottom: 22px; background: var(--navy);
+  color: #fff; border-radius: 12px; padding: 13px 26px 15px; font-size: 32px;
+  font-weight: 650; line-height: 1.2; display: flex; gap: 16px; align-items: center; }
+.problem .tag { flex: none; font-size: 32px; font-weight: 750; color: #8fb6ea; }
+
+/* ---------- descriptif ---------- */
+.cards { display: flex; gap: 36px; margin-top: 18px; }
+.card { width: 376px; }
+.card .t { font-size: 32px; font-weight: 750; line-height: 1.2; height: 42px; white-space: nowrap; }
+.card img { display: block; width: 376px; height: 330px; }
+.card .s { font-size: 32px; line-height: 1.22; color: var(--ink2); margin-top: 4px; white-space: nowrap; }
+.card .s b { color: var(--ink); }
+
+/* ---------- tests ---------- */
+.body { display: flex; gap: 34px; margin-top: 16px; height: 456px; }
+.fig { width: 560px; height: 452px; flex: none; }
+.fig img { display: block; width: 560px; height: 452px; }
+.spec { flex: 1; display: flex; flex-direction: column; font-size: 32px; line-height: 1.22; min-width: 0; }
+.hyp { display: flex; gap: 14px; padding: 2px 0; }
+.hyp .k { width: 50px; flex: none; font-weight: 750; color: var(--accent-ink); }
+.sep { height: 2px; background: var(--line); margin: 12px 0; flex: none; }
+.cond { display: flex; gap: 12px; align-items: flex-start; padding: 2px 0; color: var(--ink2); }
+.cond .ic { color: var(--accent); margin-top: 5px; }
+.note { color: var(--ink2); padding: 2px 0; }
+.note b { color: var(--ink); }
+.result { margin-top: auto; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.pv { font-size: 32px; color: var(--ink2); }
+.pv b { font-size: 44px; color: var(--ink); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.verdict { font-size: 32px; font-weight: 700; padding: 4px 18px 6px; border-radius: 10px; }
+.verdict.rej { background: var(--accent); color: #fff; }
+.verdict.keep { background: #e5e9f0; color: var(--ink); }
+
+/* ---------- tableau ---------- */
+table.tests { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 32px; }
+table.tests th { text-align: left; font-weight: 700; color: var(--muted); padding: 4px 10px 8px;
+  border-bottom: 2px solid var(--ink); white-space: nowrap; }
+table.tests td { padding: 5px 10px; border-bottom: 1px solid var(--line); white-space: nowrap;
+  line-height: 1.2; }
+table.tests td.p, table.tests th.p { text-align: right; font-variant-numeric: tabular-nums; }
+table.tests tr.cut td { border-top: 2px solid var(--ink2); }
+.yes { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--accent-ink); }
+.no { color: var(--muted); }
+.dotb { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+/* ---------- conclusion ---------- */
+.syn { margin-top: 22px; display: flex; flex-direction: column; gap: 14px; }
+.syn .row { display: flex; align-items: center; gap: 18px; }
+.syn .k { width: 340px; flex: none; font-size: 32px; font-weight: 750; padding: 6px 16px 8px;
+  border-radius: 10px; background: var(--accent-soft); color: var(--accent-ink); }
+.syn .k.off { background: #eef0f3; color: var(--ink2); }
+.syn .v { font-size: 32px; line-height: 1.2; color: var(--ink2); }
+.syn .v b { color: var(--ink); }
+.limits { margin-top: 30px; }
+.limits .lab { font-size: 32px; font-weight: 750; margin-bottom: 4px; }
+.limits ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 34px; row-gap: 2px; }
+.limits li { font-size: 32px; line-height: 1.25; color: var(--ink2); display: flex; gap: 12px; }
+.limits li::before { content: ""; width: 10px; height: 10px; margin-top: 15px; flex: none;
+  border-radius: 50%; background: var(--orange); }
+
+/* ---------- annexe ---------- */
+.annexe { padding: 26px 28px 0; }
+.annexe .head h1 { font-size: 34px; }
+.code { display: flex; gap: 24px; margin-top: 10px; }
+.code pre { width: 600px; flex: none; font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+  line-height: 1.45; color: #1f2937; white-space: pre;
+  font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+.code pre + pre { border-left: 1px solid var(--line); padding-left: 0; }
+.tok-c { color: #6b7280; font-style: italic; }
+.tok-s { color: #0f766e; }
+.tok-k { color: #7c3aed; font-weight: 600; }
+.tok-n { color: #b45309; }
+.tok-f { color: #1d4ed8; }
+.tok-o { color: #475569; }
+</style>
+</head>
+<body>
+
+<!-- ======================= PAGE DE TITRE ======================= -->
+<section class="slide title">
+  <div class="grid"></div>
+  <div class="kick">Projet · Théorie des tests</div>
+  <div class="inst">TSE · MSc A1 EMDS (magistère)<br>Université Toulouse Capitole · 2026–2027</div>
+  <h1>Dormir, jouer…<br>gagner<span class="q">&#8239;?</span></h1>
+  <svg class="pulse" viewBox="0 0 663 110" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="pg" x1="0" x2="1">
+        <stop offset="0" stop-color="#2a78d6" stop-opacity="0"/>
+        <stop offset=".35" stop-color="#2a78d6" stop-opacity=".95"/>
+        <stop offset="1" stop-color="#6da7ec" stop-opacity="1"/>
+      </linearGradient>
+    </defs>
+    <polyline fill="none" stroke="url(#pg)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"
+      points="0,60 150,60 175,60 192,32 212,98 236,8 258,84 276,60 360,60 380,60 394,44 410,74 424,60 520,60 540,60 554,14 572,104 590,60 640,60"/>
+    <circle cx="640" cy="60" r="9" fill="#eb6834"/>
+    <circle cx="640" cy="60" r="19" fill="none" stroke="#eb6834" stroke-opacity=".35" stroke-width="3"/>
+  </svg>
+  <div class="sub">Quels facteurs sont liés à la performance<br>des joueurs d’esport&#8239;?</div>
+  <div class="rule"></div>
+  <div class="team"><span class="tri">Trinôme 11</span><span>Joseph BERTIN · Thibault GUIHARD · Adam CHEBREK</span></div>
+</section>
+
+<!-- ======================= 1. INTRODUCTION ======================= -->
+<section class="slide">
+  <div class="head"><h1>Contexte, données et problématique</h1></div>
+  <div class="intro">
+    <div class="left">
+      <div class="stat"><div class="n">250&#8239;000</div><div class="l">joueurs d’esport dans la base</div></div>
+      <div class="stat"><div class="n">150</div><div class="l">tirés au hasard parmi 232&#8239;793 complets</div></div>
+      <div class="stat"><div class="n">12</div><div class="l">variables&nbsp;: 9&nbsp;quanti., 3&nbsp;quali.</div></div>
+      <div class="source"><b>Source&nbsp;:</b> Kaggle, «&nbsp;E-Sports Biometrics &amp; Performance&nbsp;» (S.&nbsp;Chhetri), données partiellement simulées</div>
+    </div>
+    <div class="diagram">
+      <div class="lab">Facteurs étudiés</div>
+      <div class="fac"><span class="k">Profil</span><span class="v">âge, genre de jeu</span></div>
+      <div class="fac"><span class="k">Hygiène de vie</span><span class="v">sommeil, jeu, boissons</span></div>
+      <div class="fac"><span class="k">Écran</span><span class="v">luminosité, filtre</span></div>
+      <div class="fac"><span class="k">Physiologie</span><span class="v">fréq. cardiaque, VFC</span></div>
+      <div class="arrow"><svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 3v16m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="perf"><div class="k">Performance</div><div class="v">temps de réaction · APM · issue du match</div></div>
+    </div>
+  </div>
+  <div class="problem"><span class="tag">Problématique</span><span>Quels facteurs sont liés à la performance des joueurs d’esport&#8239;?</span></div>
+  <div class="pageno">1 / 13</div>
+</section>
+
+<!-- ======================= 2. DESCRIPTIF : PERFORMANCE ======================= -->
+<section class="slide">
+  <div class="head"><h1>Descriptif · les indicateurs de performance</h1></div>
+  <div class="cards">
+    <div class="card"><div class="t">Temps de réaction</div><img src="../figures/d_tr.svg">
+      <div class="s"><b>moy. 265,3&nbsp;ms</b> · σ&nbsp;19,5</div>
+      <div class="s">symétrique, 222 → 344</div></div>
+    <div class="card"><div class="t">APM</div><img src="../figures/d_apm.svg">
+      <div class="s"><b>méd. 207,5</b> · σ&nbsp;78</div>
+      <div class="s">très dispersé, 75 → 400</div></div>
+    <div class="card"><div class="t">Issue du match</div><img src="../figures/d_issue.svg">
+      <div class="s"><b>52&nbsp;%</b> de défaites</div>
+      <div class="s"><b>48&nbsp;%</b> de victoires</div></div>
+  </div>
+  <div class="banner"><span class="lead">À retenir&nbsp;:</span> réaction ≈ symétrique · APM très hétérogène (effet du genre&#8239;?) · issues équilibrées</div>
+  <div class="pageno">2 / 13</div>
+</section>
+
+<!-- ======================= 3. DESCRIPTIF : HYGIENE DE VIE ======================= -->
+<section class="slide">
+  <div class="head"><h1>Descriptif · l’hygiène de vie</h1></div>
+  <div class="cards">
+    <div class="card"><div class="t">Sommeil</div><img src="../figures/d_sommeil.svg">
+      <div class="s"><b>moy. 6,5&nbsp;h</b> · σ&nbsp;1,6</div>
+      <div class="s"><b>38&nbsp;%</b> dorment &lt;&nbsp;6&nbsp;h</div></div>
+    <div class="card"><div class="t">Temps de jeu</div><img src="../figures/d_jeu.svg">
+      <div class="s"><b>méd. 2,1&nbsp;h</b> · moy. 2,6&nbsp;h</div>
+      <div class="s">asymétrique, 27 à 0,5&nbsp;h</div></div>
+    <div class="card"><div class="t">Boissons énergisantes</div><img src="../figures/d_boissons.svg">
+      <div class="s"><b>47&nbsp;%</b> n’en boivent pas</div>
+      <div class="s">discrète, de 0 à 4</div></div>
+  </div>
+  <div class="banner"><span class="lead">Temps de jeu</span> découpé en 3 classes&nbsp;: ≤&nbsp;1&nbsp;h (42) · 1–3&nbsp;h (61) · &gt;&nbsp;3&nbsp;h (47)</div>
+  <div class="pageno">3 / 13</div>
+</section>
+
+<!-- ======================= 4. DESCRIPTIF : PROFIL, ECRAN, PHYSIO ======================= -->
+<section class="slide">
+  <div class="head"><h1>Descriptif · profil, écran et physiologie</h1></div>
+  <div class="cards">
+    <div class="card"><div class="t">Genre de jeu</div><img src="../figures/d_genre.svg">
+      <div class="s"><b>81&nbsp;%</b> MOBA ou FPS</div>
+      <div class="s">B.&nbsp;Royale, Combat &lt;&nbsp;30</div></div>
+    <div class="card"><div class="t">Filtre lumière bleue</div><img src="../figures/d_filtre.svg">
+      <div class="s"><b>32&nbsp;%</b> l’utilisent</div>
+      <div class="s">68&nbsp;% sans filtre</div></div>
+    <div class="card"><div class="t">Fréquence cardiaque</div><img src="../figures/d_fc.svg">
+      <div class="s"><b>moy. 84&nbsp;bpm</b> · σ&nbsp;10</div>
+      <div class="s">de 60 à 110&nbsp;bpm</div></div>
+  </div>
+  <div class="banner"><span class="lead">Aussi&nbsp;:</span> âge 16–33 ans (méd.&nbsp;23) · VFC méd.&nbsp;88 (16 au plafond 100)</div>
+  <div class="pageno">4 / 13</div>
+</section>
+
+<!-- ======================= 5. TEST 1 : PEARSON ======================= -->
+<section class="slide">
+  <div class="head"><div class="num">1</div><h1>Sommeil et temps de réaction</h1><div class="chip">Pearson</div></div>
+  <div class="body">
+    <div class="fig"><img src="../figures/t1_pearson.svg"></div>
+    <div class="spec">
+      <div class="hyp"><span class="k">H<sub>0</sub></span><span>ρ = 0 (pas de liaison linéaire)</span></div>
+      <div class="hyp"><span class="k">H<sub>1</sub></span><span>ρ ≠ 0</span></div>
+      <div class="sep"></div>
+      <div class="cond">CHECK<span>2 variables quantitatives continues</span></div>
+      <div class="cond">CHECK<span>n = 150 ≥ 30&nbsp;: test asymptotique, sans hypothèse de normalité</span></div>
+      <div class="sep"></div>
+      <div class="note"><b>r = −0,30</b> · pente ≈ −3,7&nbsp;ms/h</div>
+      <div class="result"><div class="pv">p-valeur <b>2,4·10<sup>−4</sup></b></div><div class="verdict rej">H<sub>0</sub> rejetée</div></div>
+    </div>
+  </div>
+  <div class="banner"><span class="lead">Conclusion&nbsp;:</span> liaison linéaire négative, modérée. Plus de sommeil va de pair avec une réaction plus rapide.</div>
+  <div class="pageno">5 / 13</div>
+</section>
+
+<!-- ======================= 6. TEST 2 : ANOVA WELCH ======================= -->
+<section class="slide">
+  <div class="head"><div class="num">2</div><h1>Temps de jeu et temps de réaction</h1><div class="chip">ANOVA de Welch</div></div>
+  <div class="body">
+    <div class="fig"><img src="../figures/t2_anova.svg"></div>
+    <div class="spec">
+      <div class="hyp"><span class="k">H<sub>0</sub></span><span>μ<sub>1</sub> = μ<sub>2</sub> = μ<sub>3</sub></span></div>
+      <div class="hyp"><span class="k">H<sub>1</sub></span><span>au moins 2 moyennes diffèrent</span></div>
+      <div class="sep"></div>
+      <div class="cond">CHECK<span>3 groupes indépendants</span></div>
+      <div class="cond">CHECK<span>n<sub>k</sub> ≥ 30 (42 · 61 · 47)&nbsp;: asymptotique</span></div>
+      <div class="cond">CHECK<span>variances non supposées égales</span></div>
+      <div class="sep"></div>
+      <div class="note"><b>Bonferroni&nbsp;:</b> seule la classe &gt;&nbsp;3&nbsp;h diffère des deux autres</div>
+      <div class="result"><div class="pv">p-valeur <b>2,7·10<sup>−6</sup></b></div><div class="verdict rej">H<sub>0</sub> rejetée</div></div>
+    </div>
+  </div>
+  <div class="banner"><span class="lead">Conclusion&nbsp;:</span> au-delà de 3&nbsp;h de jeu, réaction plus lente de 16 à 22&nbsp;ms en moyenne (<span class="dia">◆</span>&nbsp;moyenne).</div>
+  <div class="pageno">6 / 13</div>
+</section>
+
+<!-- ======================= 7. TEST 3 : SPEARMAN ======================= -->
+<section class="slide">
+  <div class="head"><div class="num">3</div><h1>Boissons énergisantes et rythme cardiaque</h1><div class="chip">Spearman</div></div>
+  <div class="body">
+    <div class="fig"><img src="../figures/t3_spearman.svg"></div>
+    <div class="spec">
+      <div class="hyp"><span class="k">H<sub>0</sub></span><span>ρ<sub>S</sub> = 0 (pas de liaison monotone)</span></div>
+      <div class="hyp"><span class="k">H<sub>1</sub></span><span>ρ<sub>S</sub> ≠ 0</span></div>
+      <div class="sep"></div>
+      <div class="cond">CHECK<span>boissons&nbsp;: variable ordinale (0 à 4)</span></div>
+      <div class="cond">CHECK<span>nombreux ex-æquo → rangs</span></div>
+      <div class="cond">CHECK<span>n = 150&nbsp;: test asymptotique</span></div>
+      <div class="sep"></div>
+      <div class="note"><b>ρ<sub>S</sub> = 0,48</b> · médianes <span class="dia">◆</span> 80 → 93&nbsp;bpm</div>
+      <div class="result"><div class="pv">p-valeur <b>4,1·10<sup>−10</sup></b></div><div class="verdict rej">H<sub>0</sub> rejetée</div></div>
+    </div>
+  </div>
+  <div class="banner"><span class="lead">Conclusion&nbsp;:</span> liaison croissante. Plus de boissons énergisantes, plus le cœur bat vite (+13&nbsp;bpm en médiane).</div>
+  <div class="pageno">7 / 13</div>
+</section>
+
+<!-- ======================= 8. TEST 4 : KRUSKAL-WALLIS ======================= -->
+<section class="slide">
+  <div class="head"><div class="num">4</div><h1>Genre de jeu et APM</h1><div class="chip">Kruskal-Wallis</div></div>
+  <div class="body">
+    <div class="fig"><img src="../figures/t4_kruskal.svg"></div>
+    <div class="spec">
+      <div class="hyp"><span class="k">H<sub>0</sub></span><span>même loi d’APM dans les 4 genres</span></div>
+      <div class="hyp"><span class="k">H<sub>1</sub></span><span>au moins un genre diffère</span></div>
+      <div class="sep"></div>
+      <div class="cond">CHECK<span>4 groupes indépendants</span></div>
+      <div class="cond">CHECK<span>B.&nbsp;Royale (15), Combat (14) &lt;&nbsp;30 → test non paramétrique</span></div>
+      <div class="sep"></div>
+      <div class="note"><b>Wilcoxon 2 à 2 (Bonferroni)&nbsp;:</b> les 6 paires diffèrent</div>
+      <div class="result"><div class="pv">p-valeur <b>3,7·10<sup>−23</sup></b></div><div class="verdict rej">H<sub>0</sub> rejetée</div></div>
+    </div>
+  </div>
+  <div class="banner"><span class="lead">Conclusion&nbsp;:</span> l’APM dépend fortement du genre. Combat et MOBA demandent 1,7 à 2,7 fois plus d’actions que FPS et B.&nbsp;Royale.</div>
+  <div class="pageno">8 / 13</div>
+</section>
+
+<!-- ======================= 9. TEST 5 : WILCOXON-MANN-WHITNEY ======================= -->
+<section class="slide">
+  <div class="head"><div class="num">5</div><h1>Filtre lumière bleue et réaction (FPS)</h1><div class="chip">Mann-Whitney</div></div>
+  <div class="body">
+    <div class="fig"><img src="../figures/t5_wilcoxon.svg"></div>
+    <div class="spec">
+      <div class="note"><b>Sous-échantillon&nbsp;:</b> 54 joueurs de FPS, genre où les réflexes priment</div>
+      <div class="sep"></div>
+      <div class="hyp"><span class="k">H<sub>0</sub></span><span>même loi du temps de réaction avec ou sans filtre</span></div>
+      <div class="hyp"><span class="k">H<sub>1</sub></span><span>lois décalées</span></div>
+      <div class="sep"></div>
+      <div class="cond">CHECK<span>2 groupes indépendants</span></div>
+      <div class="cond">CHECK<span>avec filtre&nbsp;: n = 13 &lt;&nbsp;30 → test de Wilcoxon-Mann-Whitney</span></div>
+      <div class="result"><div class="pv">p-valeur <b>0,84</b></div><div class="verdict keep">H<sub>0</sub> non rejetée</div></div>
+    </div>
+  </div>
+  <div class="banner"><span class="lead">Conclusion&nbsp;:</span> chez les joueurs de FPS, le filtre n’est pas lié au temps de réaction (médianes <span class="dia">◆</span> 265 et 261&nbsp;ms).</div>
+  <div class="pageno">9 / 13</div>
+</section>
+
+<!-- ======================= 10. TEST 6 : WELCH ======================= -->
+<section class="slide">
+  <div class="head"><div class="num">6</div><h1>Temps de réaction et issue du match</h1><div class="chip">Student-Welch</div></div>
+  <div class="body">
+    <div class="fig"><img src="../figures/t6_welch.svg"></div>
+    <div class="spec">
+      <div class="hyp"><span class="k">H<sub>0</sub></span><span>μ<sub>D</sub> = μ<sub>V</sub> (D&nbsp;: défaite, V&nbsp;: victoire)</span></div>
+      <div class="hyp"><span class="k">H<sub>1</sub></span><span>μ<sub>D</sub> ≠ μ<sub>V</sub></span></div>
+      <div class="sep"></div>
+      <div class="cond">CHECK<span>2 groupes indépendants</span></div>
+      <div class="cond">CHECK<span>n = 78 et 72 ≥ 30&nbsp;: test asymptotique</span></div>
+      <div class="cond">CHECK<span>variances non supposées égales</span></div>
+      <div class="sep"></div>
+      <div class="note"><b>Moyennes <span class="dia">◆</span>&nbsp;:</b> 266,5 et 264,0&nbsp;ms, écart de 2,5&nbsp;ms</div>
+      <div class="result"><div class="pv">p-valeur <b>0,44</b></div><div class="verdict keep">H<sub>0</sub> non rejetée</div></div>
+    </div>
+  </div>
+  <div class="banner"><span class="lead">Conclusion&nbsp;:</span> gagnants et perdants réagissent aussi vite en moyenne. La réaction n’explique pas la victoire.</div>
+  <div class="pageno">10 / 13</div>
+</section>
+
+<!-- ======================= 11. TEST 7 : KHI-DEUX ======================= -->
+<section class="slide">
+  <div class="head"><div class="num">7</div><h1>Genre de jeu et issue du match</h1><div class="chip">χ² d’indépendance</div></div>
+  <div class="body">
+    <div class="fig"><img src="../figures/t7_khi2.svg"></div>
+    <div class="spec">
+      <div class="hyp"><span class="k">H<sub>0</sub></span><span>genre et issue indépendants</span></div>
+      <div class="hyp"><span class="k">H<sub>1</sub></span><span>genre et issue liés</span></div>
+      <div class="sep"></div>
+      <div class="cond">CHECK<span>observations indépendantes</span></div>
+      <div class="cond">CHECK<span>effectifs théoriques ≥ 5 (min.&nbsp;6,7)</span></div>
+      <div class="sep"></div>
+      <div class="note"><b>Victoires&nbsp;:</b> de 43&nbsp;% (FPS) à 57&nbsp;% (Combat)</div>
+      <div class="note">pointillés = taux global de 48&nbsp;%</div>
+      <div class="result"><div class="pv">p-valeur <b>0,73</b></div><div class="verdict keep">H<sub>0</sub> non rejetée</div></div>
+    </div>
+  </div>
+  <div class="banner"><span class="lead">Conclusion&nbsp;:</span> le taux de victoire ne dépend pas du genre de jeu&nbsp;: il reste proche de 50&nbsp;%.</div>
+  <div class="pageno">11 / 13</div>
+</section>
+
+<!-- ======================= 12. AUTRES TESTS ======================= -->
+<section class="slide">
+  <div class="head"><h1>Autres liaisons testées</h1><div class="chip">TR = temps de réaction</div></div>
+  <table class="tests">
+    <thead><tr><th>Variable 1</th><th>Variable 2</th><th>Test</th><th class="p">Coef.</th><th class="p">p-valeur</th><th>Liaison (5&nbsp;%)</th></tr></thead>
+    <tbody>
+      <tr><td>Âge</td><td>TR</td><td>Pearson</td><td class="p">0,40</td><td class="p">3·10<sup>−7</sup></td><td><span class="yes"><span class="dotb"></span>positive</span></td></tr>
+      <tr><td>VFC</td><td>TR</td><td>Pearson</td><td class="p">−0,34</td><td class="p">2·10<sup>−5</sup></td><td><span class="yes"><span class="dotb"></span>négative</span></td></tr>
+      <tr><td>Sommeil</td><td>VFC</td><td>Pearson</td><td class="p">0,37</td><td class="p">3·10<sup>−6</sup></td><td><span class="yes"><span class="dotb"></span>positive</span></td></tr>
+      <tr><td>Temps de jeu</td><td>VFC</td><td>Spearman</td><td class="p">−0,27</td><td class="p">8·10<sup>−4</sup></td><td><span class="yes"><span class="dotb"></span>négative</span></td></tr>
+      <tr><td>FC</td><td>APM</td><td>Pearson</td><td class="p">0,35</td><td class="p">1·10<sup>−5</sup></td><td><span class="yes"><span class="dotb"></span>positive</span></td></tr>
+      <tr class="cut"><td>Boissons</td><td>TR</td><td>Spearman</td><td class="p">0,03</td><td class="p">0,72</td><td class="no">aucune</td></tr>
+      <tr><td>Luminosité</td><td>TR</td><td>Pearson</td><td class="p">−0,01</td><td class="p">0,87</td><td class="no">aucune</td></tr>
+      <tr><td>Genre</td><td>TR</td><td>Kruskal-Wallis</td><td class="p">—</td><td class="p">0,67</td><td class="no">aucune</td></tr>
+      <tr><td>APM</td><td>Issue du match</td><td>Welch</td><td class="p">—</td><td class="p">0,84</td><td class="no">aucune</td></tr>
+      <tr><td>Filtre</td><td>Issue du match</td><td>χ²</td><td class="p">—</td><td class="p">0,87</td><td class="no">aucune</td></tr>
+    </tbody>
+  </table>
+  <div class="pageno">12 / 13</div>
+</section>
+
+<!-- ======================= 13. CONCLUSION ======================= -->
+<section class="slide">
+  <div class="head"><h1>Conclusion · ce qui est lié à la performance</h1></div>
+  <div class="syn">
+    <div class="row"><div class="k">Temps de réaction</div><div class="v"><b>sommeil</b> (−), <b>sessions longues</b> (+), âge (+), VFC (−)</div></div>
+    <div class="row"><div class="k">APM</div><div class="v"><b>genre de jeu</b> (effet très fort), fréquence cardiaque (+)</div></div>
+    <div class="row"><div class="k">Fréq. cardiaque</div><div class="v"><b>boissons énergisantes</b> (+), sans effet sur la réaction</div></div>
+    <div class="row"><div class="k off">Issue du match</div><div class="v">aucun facteur mesuré&nbsp;: ni réaction, ni genre, ni écran</div></div>
+  </div>
+  <div class="limits">
+    <div class="lab">Limites</div>
+    <ul>
+      <li>données partiellement simulées</li>
+      <li>corrélation ≠ causalité</li>
+      <li>17 tests&nbsp;: risque de faux positifs</li>
+      <li>petits groupes (FPS avec filtre&nbsp;: 13)</li>
+    </ul>
+  </div>
+  <div class="banner"><span class="lead">Réponse&nbsp;:</span> les réflexes se jouent aussi hors de l’écran (sommeil, durée de jeu)&nbsp;; la victoire dépend d’autres facteurs.</div>
+  <div class="pageno">13 / 13</div>
+</section>
+
+<!--ANNEXE-->
+
+</body>
+</html>

@@ -163,10 +163,18 @@ boites <- function(df, x, y, lab_y, f, h, ylim, horiz = FALSE) {
     (if (horiz) coord_flip(ylim = ylim) else coord_cartesian(ylim = ylim)) +
     labs(x = NULL, y = lab_y)
 }
-histo <- function(v, pas, lab) ggplot(d, aes(.data[[v]])) +
-  geom_histogram(binwidth = pas, boundary = 0, fill = bleu,
-                 colour = "white", linewidth = 0.6) +
-  labs(x = lab, y = NULL)
+histo <- function(v, pas, lab) {         # histogramme + boîte à moustaches
+  b <- seq(floor(min(d[[v]]) / pas) * pas, max(d[[v]]) + pas, pas)
+  h <- max(table(cut(d[[v]], b, right = FALSE)))
+  ggplot(d, aes(.data[[v]])) +
+    geom_histogram(binwidth = pas, boundary = 0, closed = "left",
+                   fill = bleu, colour = "white", linewidth = 0.6) +
+    geom_boxplot(aes(y = -0.2 * h), width = 0.16 * h, orientation = "y",
+                 fill = bleu_clair, colour = bleu, linewidth = 0.5,
+                 outlier.size = 1.6, outlier.colour = orange) +
+    scale_y_continuous(breaks = function(l) pretty(c(0, l[2]), 3)) +
+    labs(x = lab, y = NULL)
+}
 barres <- function(v, lab, noms) ggplot(d, aes(.data[[v]])) +
   geom_bar(fill = bleu, width = 0.6) +
   do.call(geom_text, c(list(stat = "count", vjust = -0.35,
@@ -182,9 +190,9 @@ sauve(histo("APM", 25, "actions par minute"), "d_apm", L, H)
 sauve(barres("Match_Outcome", NULL, c("Défaite", "Victoire")),
       "d_issue", L, H)
 sauve(histo("Sleep_Hours", 0.5, "heures par nuit"), "d_sommeil", L, H)
-sauve(histo("PlayTime_Hours", 0.5, "heures par jour") +
+sauve(histo("PlayTime_Hours", 0.5, "heures de jeu") +
         scale_x_continuous(breaks = seq(0, 12, 3)), "d_jeu", L, H)
-sauve(barres("Energy_Drinks", "boissons par jour", as.character(0:4)),
+sauve(barres("Energy_Drinks", "nombre de boissons", as.character(0:4)),
       "d_boissons", L, H)
 genres <- c("MOBA", "FPS", "B. Royale", "Combat")
 sauve(ggplot(d, aes(y = factor(Game_Genre, rev(levels(Game_Genre))))) +
@@ -226,7 +234,7 @@ d3 <- transform(d, Boissons = factor(pmin(Energy_Drinks, 3),
                   labels = c("0", "1", "2", "≥ 3")))
 sauve(boites(d3, "Boissons", "Heart_Rate_BPM", "Fréq. cardiaque (bpm)",
              median, 119, c(58, 119)) +
-        labs(x = "Boissons énergisantes par jour"), "t3_spearman", L, H)
+        labs(x = "Nombre de boissons énergisantes"), "t3_spearman", L, H)
 
 # Test 4 : APM par genre de jeu (boîtes horizontales, rangées par médiane)
 d4 <- transform(d, Game_Genre = factor(Game_Genre, labels = genres))

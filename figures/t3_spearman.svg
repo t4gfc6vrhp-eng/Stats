@@ -220,7 +220,7 @@
 <text x='283.14' y='301.20' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='60.19px' lengthAdjust='spacingAndGlyphs'>n=24</text>
 <text x='359.96' y='275.28' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='37.45px' lengthAdjust='spacingAndGlyphs'>≥ 3</text>
 <text x='359.96' y='301.20' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='44.94px' lengthAdjust='spacingAndGlyphs'>n=9</text>
-<text x='244.74' y='329.83' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='349.92px' lengthAdjust='spacingAndGlyphs'>Boissons énergisantes par jour</text>
+<text x='244.74' y='329.83' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='388.17px' lengthAdjust='spacingAndGlyphs'>Nombre de boissons énergisantes</text>
 <text transform='translate(21.45,129.51) rotate(-90)' text-anchor='middle' style='font-size: 24.00px;fill: #475569; font-family: "Inter";' textLength='253.32px' lengthAdjust='spacingAndGlyphs'>Fréq. cardiaque (bpm)</text>
 </g>
 </svg>

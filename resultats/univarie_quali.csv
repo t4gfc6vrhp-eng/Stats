@@ -1,0 +1,14 @@
+"variable","modalite","effectif","pourcentage"
+"Game_Genre","MOBA",67,44.7
+"Game_Genre","FPS",54,36
+"Game_Genre","Battle Royale",15,10
+"Game_Genre","Fighting",14,9.3
+"Blue_Light_Filter","No",102,68
+"Blue_Light_Filter","Yes",48,32
+"Match_Outcome","Loss",78,52
+"Match_Outcome","Win",72,48
+"Energy_Drinks","0",71,47.3
+"Energy_Drinks","1",46,30.7
+"Energy_Drinks","2",24,16
+"Energy_Drinks","3",8,5.3
+"Energy_Drinks","4",1,0.7

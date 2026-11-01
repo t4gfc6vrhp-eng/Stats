@@ -92,6 +92,13 @@ b, strong { font-weight: 700; }
   font-weight: 650; line-height: 1.2; display: flex; gap: 16px; align-items: center; }
 .problem .tag { flex: none; font-size: 32px; font-weight: 750; color: #8fb6ea; }
 
+.irows { margin-top: 14px; }
+.irow { display: flex; gap: 24px; padding: 10px 0; border-bottom: 1px solid var(--line);
+  font-size: 32px; line-height: 1.22; }
+.irow .k { width: 210px; flex: none; font-weight: 750; color: var(--accent-ink); }
+.irow .v { color: var(--ink2); }
+.irow .v b { color: var(--ink); }
+
 /* ---------- descriptif ---------- */
 .cards { display: flex; gap: 36px; margin-top: 18px; }
 .card { width: 376px; }
@@ -191,24 +198,14 @@ table.tests tr.cut td { border-top: 2px solid var(--ink2); }
 <!-- ======================= 1. INTRODUCTION ======================= -->
 <section class="slide">
   <div class="head"><h1>Contexte, données et problématique</h1></div>
-  <div class="intro">
-    <div class="left">
-      <div class="stat"><div class="n">250&#8239;000</div><div class="l">joueurs d’esport dans la base</div></div>
-      <div class="stat"><div class="n">150</div><div class="l">tirés au hasard parmi 232&#8239;793 complets</div></div>
-      <div class="stat"><div class="n">12</div><div class="l">variables&nbsp;: 9&nbsp;quanti., 3&nbsp;quali.</div></div>
-      <div class="source"><b>Source&nbsp;:</b> Kaggle, «&nbsp;E-Sports Biometrics &amp; Performance&nbsp;» (S.&nbsp;Chhetri), données partiellement simulées</div>
-    </div>
-    <div class="diagram">
-      <div class="lab">Facteurs étudiés</div>
-      <div class="fac"><span class="k">Profil</span><span class="v">âge, genre de jeu</span></div>
-      <div class="fac"><span class="k">Hygiène de vie</span><span class="v">sommeil, jeu, boissons</span></div>
-      <div class="fac"><span class="k">Écran</span><span class="v">luminosité, filtre</span></div>
-      <div class="fac"><span class="k">Physiologie</span><span class="v">fréq. cardiaque, VFC</span></div>
-      <div class="arrow"><svg width="40" height="40" viewBox="0 0 24 24"><path d="M12 3v16m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="perf"><div class="k">Performance</div><div class="v">temps de réaction · APM · issue du match</div></div>
-    </div>
+  <div class="irows">
+    <div class="irow"><span class="k">Contexte</span><span class="v">en esport, la victoire se joue à quelques millisecondes près</span></div>
+    <div class="irow"><span class="k">Source</span><span class="v">Kaggle, «&nbsp;E-Sports Biometrics &amp; Performance&nbsp;» (S.&nbsp;Chhetri), données partiellement simulées</span></div>
+    <div class="irow"><span class="k">Population</span><span class="v">joueurs d’esport&nbsp;: <b>250&#8239;000</b> dans la base, dont <b>232&#8239;793</b> sans valeur manquante</span></div>
+    <div class="irow"><span class="k">Échantillon</span><span class="v"><b>150 joueurs</b> tirés au hasard parmi les individus complets</span></div>
+    <div class="irow"><span class="k">Variables</span><span class="v"><b>12</b> (9 quantitatives, 3 qualitatives)&nbsp;: profil, hygiène de vie, écran, physiologie et performance</span></div>
   </div>
-  <div class="problem"><span class="tag">Problématique</span><span>Quels facteurs sont liés à la performance des joueurs d’esport&#8239;?</span></div>
+  <div class="problem"><span class="tag">Problématique</span><span>Quels facteurs sont liés à la performance des joueurs d’esport (réaction, APM, victoire)&#8239;?</span></div>
   <div class="pageno">1 / 13</div>
 </section>
 
@@ -217,16 +214,16 @@ table.tests tr.cut td { border-top: 2px solid var(--ink2); }
   <div class="head"><h1>Descriptif · les indicateurs de performance</h1></div>
   <div class="cards">
     <div class="card"><div class="t">Temps de réaction</div><img src="../figures/d_tr.svg">
-      <div class="s"><b>moy. 265,3&nbsp;ms</b> · σ&nbsp;19,5</div>
-      <div class="s">symétrique, 222 → 344</div></div>
+      <div class="s"><b>moy. 265,3</b> · méd. 264,9</div>
+      <div class="s">σ&nbsp;19,5 · symétrique</div></div>
     <div class="card"><div class="t">APM</div><img src="../figures/d_apm.svg">
-      <div class="s"><b>méd. 207,5</b> · σ&nbsp;78</div>
-      <div class="s">très dispersé, 75 → 400</div></div>
+      <div class="s"><b>moy. 207,3</b> · méd. 207,5</div>
+      <div class="s">σ&nbsp;77,9 · de 75 à 400</div></div>
     <div class="card"><div class="t">Issue du match</div><img src="../figures/d_issue.svg">
       <div class="s"><b>52&nbsp;%</b> de défaites</div>
       <div class="s"><b>48&nbsp;%</b> de victoires</div></div>
   </div>
-  <div class="banner"><span class="lead">À retenir&nbsp;:</span> réaction ≈ symétrique · APM très hétérogène (effet du genre&#8239;?) · issues équilibrées</div>
+  <div class="banner"><span class="lead">À retenir&nbsp;:</span> réaction symétrique (1 valeur atypique, 344&nbsp;ms) · APM très dispersé, effet du genre&#8239;? · issues équilibrées</div>
   <div class="pageno">2 / 13</div>
 </section>
 
@@ -236,15 +233,15 @@ table.tests tr.cut td { border-top: 2px solid var(--ink2); }
   <div class="cards">
     <div class="card"><div class="t">Sommeil</div><img src="../figures/d_sommeil.svg">
       <div class="s"><b>moy. 6,5&nbsp;h</b> · σ&nbsp;1,6</div>
-      <div class="s"><b>38&nbsp;%</b> dorment &lt;&nbsp;6&nbsp;h</div></div>
+      <div class="s">symétrique · <b>38&nbsp;%</b> &lt;&nbsp;6&nbsp;h</div></div>
     <div class="card"><div class="t">Temps de jeu</div><img src="../figures/d_jeu.svg">
       <div class="s"><b>méd. 2,1&nbsp;h</b> · moy. 2,6&nbsp;h</div>
-      <div class="s">asymétrique, 27 à 0,5&nbsp;h</div></div>
+      <div class="s">très asymétrique</div></div>
     <div class="card"><div class="t">Boissons énergisantes</div><img src="../figures/d_boissons.svg">
       <div class="s"><b>47&nbsp;%</b> n’en boivent pas</div>
       <div class="s">discrète, de 0 à 4</div></div>
   </div>
-  <div class="banner"><span class="lead">Temps de jeu</span> découpé en 3 classes&nbsp;: ≤&nbsp;1&nbsp;h (42) · 1–3&nbsp;h (61) · &gt;&nbsp;3&nbsp;h (47)</div>
+  <div class="banner"><span class="lead">Temps de jeu</span> (plancher 0,5&nbsp;h, 7 valeurs atypiques) découpé en 3 classes&nbsp;: ≤&nbsp;1&nbsp;h (42) · 1–3&nbsp;h (61) · &gt;&nbsp;3&nbsp;h (47)</div>
   <div class="pageno">3 / 13</div>
 </section>
 
@@ -260,7 +257,7 @@ table.tests tr.cut td { border-top: 2px solid var(--ink2); }
       <div class="s">68&nbsp;% sans filtre</div></div>
     <div class="card"><div class="t">Fréquence cardiaque</div><img src="../figures/d_fc.svg">
       <div class="s"><b>moy. 84&nbsp;bpm</b> · σ&nbsp;10</div>
-      <div class="s">de 60 à 110&nbsp;bpm</div></div>
+      <div class="s">symétrique, 60 → 110</div></div>
   </div>
   <div class="banner"><span class="lead">Aussi&nbsp;:</span> âge 16–33 ans (méd.&nbsp;23) · VFC méd.&nbsp;88 (16 au plafond 100)</div>
   <div class="pageno">4 / 13</div>
